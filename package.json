@@ -1,0 +1,174 @@
+{
+  "name": "webpack-starter-kit",
+  "version": "1.0.0",
+  "description": "Starter Kit for every-day frontend work",
+  "author": "Kamil Mendelski <kontakt@frontlabs.pl>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/emendelski/webpack-starter-kit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/emendelski/webpack-starter-kit/issues"
+  },
+  "scripts": {
+    "lint": "eslint --ext .js src",
+    "dev": "cross-env NODE_ENV=dev webpack-dev-server --progress --mode development",
+    "postinstall": "touch ./node_modules/.metadata_never_index",
+    "build": "webpack -p --progress --mode production",
+    "deploy": "npm run build && node deploy"
+  },
+  "private": true,
+  "engines": {
+    "node": ">= 4.0.0",
+    "npm": ">= 3.0.0"
+  },
+  "dependencies": {
+    "normalize-scss": "^7.0.1",
+    "prismjs": "^1.19.0",
+    "core-js": "^3.6.4",
+    "regenerator-runtime": "^0.13.5"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "autoprefixer": "^9.7.5",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.1.0",
+    "copy-webpack-plugin": "^5.1.1",
+    "cross-env": "^7.0.2",
+    "css-loader": "^3.4.2",
+    "dotenv": "^8.2.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-friendly-formatter": "^4.0.1",
+    "eslint-loader": "^3.0.3",
+    "eslint-plugin-import": "^2.20.2",
+    "file-loader": "^6.0.0",
+    "ftp-deploy": "^2.3.6",
+    "group-css-media-queries-loader": "^3.0.2",
+    "image-webpack-loader": "^6.0.0",
+    "imagemin-webpack-plugin": "^2.4.2",
+    "mini-css-extract-plugin": "^0.9.0",
+    "node-sass": "^4.13.1",
+    "postcss-loader": "^3.0.0",
+    "sass-loader": "^8.0.2",
+    "speed-measure-webpack-plugin": "^1.3.3",
+    "style-loader": "^1.1.3",
+    "stylelint": "^13.2.1",
+    "stylelint-order": "^4.0.0",
+    "stylelint-scss": "^3.16.0",
+    "stylelint-webpack-plugin": "^1.2.3",
+    "url-loader": "^4.0.0",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie < 10"
+  ],
+  "babel": {
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "modules": false
+        }
+      ]
+    ]
+  },
+  "eslintConfig": {
+    "parser": "babel-eslint",
+    "extends": "airbnb-base",
+    "parserOptions": {
+      "ecmaFeatures": {
+        "modules": true
+      }
+    },
+    "env": {
+      "browser": true,
+      "es6": true,
+      "jquery": true
+    }
+  },
+  "eslintIgnore": [
+    "./dist/*",
+    "./node_modules/*"
+  ],
+  "stylelint": {
+    "plugins": [
+      "stylelint-scss",
+      "stylelint-order"
+    ],
+    "rules": {
+      "indentation": 2,
+      "number-leading-zero": "never",
+      "string-quotes": "double",
+      "selector-max-id": 0,
+      "selector-list-comma-newline-after": "always",
+      "rule-empty-line-before": [
+        "always",
+        {
+          "ignore": [
+            "after-comment"
+          ]
+        }
+      ],
+      "comment-empty-line-before": [
+        "always",
+        {
+          "except": [
+            "first-nested"
+          ]
+        }
+      ],
+      "block-opening-brace-space-before": "always",
+      "declaration-colon-space-after": "always",
+      "declaration-colon-space-before": "never",
+      "declaration-block-single-line-max-declarations": 1,
+      "declaration-property-value-blacklist": {
+        "/^border/": [
+          "none"
+        ]
+      },
+      "at-rule-empty-line-before": [
+        "always",
+        {
+          "except": [
+            "blockless-after-same-name-blockless",
+            "first-nested"
+          ],
+          "ignore": [
+            "after-comment"
+          ]
+        }
+      ],
+      "max-nesting-depth": [
+        3,
+        {
+          "ignore": [
+            "blockless-at-rules"
+          ],
+          "ignoreAtRules": [
+            "include",
+            "media"
+          ]
+        }
+      ],
+      "scss/dollar-variable-pattern": "^_?[a-z]+[\\w-]*$",
+      "scss/at-extend-no-missing-placeholder": true,
+      "order/order": [
+        "declarations",
+        {
+          "type": "at-rule"
+        },
+        {
+          "type": "at-rule",
+          "hasBlock": true
+        },
+        "rules"
+      ]
+    }
+  }
+}
