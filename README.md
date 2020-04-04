@@ -1,6 +1,6 @@
-# webpack-starter-kit
+# timeline.cey.sh
 
-> Starter Kit for every-day frontend work
+> A timeline of events in Sri Lankan history
 
 ## Build Setup
 
